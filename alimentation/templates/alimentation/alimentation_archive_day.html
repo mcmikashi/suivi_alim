@@ -1,0 +1,10 @@
+{% extends 'alimentation/alimentation_list.html' %}
+{% block formulaire %}
+
+{% endblock formulaire %}
+{% block contenue %}
+    {% with object_list as liste_consomation %}
+            {{ block.super }}
+    {% endwith %}
+    {% block btn_effacer_tab %} {% endblock btn_effacer_tab %}
+{% endblock contenue %}

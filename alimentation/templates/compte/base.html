@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/alimentation.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/chart.js' %}"></script>
+    <title>Suivie alimentation</title>
+</head>
+<body>
+    <div class="container">
+    {% block contenue %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto text-center mt-5">
+                <p>Nous vous avons envoyé par courriel les instructions pour changer de mot de passe, pour autant qu’un compte existe avec l’adresse que vous avez indiquée. Vous devriez recevoir rapidement ce message.Si vous ne recevez pas de message, vérifiez que vous avez saisi l’adresse avec laquelle vous vous êtes enregistré et contrôlez votre dossier de pourriels.</p>
+                <a href="{% url 'alimentation:login' %}" class="text-center btn btn-outline-danger" >retour</a>
+            </div>
+        </div>
+    </div>
+    {% endblock  %}
+    </div>
+</body>
+</html>

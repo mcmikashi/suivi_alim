@@ -1,0 +1,80 @@
+{% extends 'alimentation/base.html' %}
+{% block contenue %}
+    <div class="row">
+        <div class="col">
+            <h2 class="display-4 text-uppercase text-center">{{ object.nom }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img  class="img-fluid" src="{{ object.image.url }}" alt="{{ object.nom }}">
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                            <th>Nom</th>
+                            <th>Quantité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Calorie</td>
+                        <td>{{object.calorie}}</td>
+                    </tr>
+                    <tr>
+                        <td>Lipides</td>
+                        <td>{{object.lipides}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cholestérol</td>
+                        <td>{{object.cholestérol}}</td>
+                    </tr>
+                    <tr>
+                        <td>Protéines</td>
+                        <td>{{object.protéines}}</td>
+                    </tr>
+                    <tr>
+                        <td>Potassium</td>
+                        <td>{{object.potassium}}</td>
+                    </tr>
+                    <tr>
+                        <td>Glucides</td>
+                        <td>{{object.glucides}}</td>
+                    </tr>
+                </tbody>
+              </table>
+              <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+{% endblock  %}
+{% block body %}
+<script>
+    const data = {
+        labels: [
+          'Lipides',
+          'Cholestérol',
+          'Protéines',
+          'Potassium ',
+          'Glucides'
+        ],
+        datasets: [{
+          label: 'Valeur energetique',
+          data: [{{object.lipides|escapejs}},{{object.cholestérol|escapejs}},{{object.protéines|escapejs}},{{object.potassium|escapejs}},{{object.glucides|escapejs}}],
+          backgroundColor: [
+            'rgb(241, 196, 15)',
+            'rgb(183, 149, 11)',
+            'rgb(255, 0, 0 )',
+            'rgb(198, 230, 236)',
+            'rgb(255, 146, 0)'
+          ],
+          hoverOffset: 4
+        }]
+      };
+    var ctx = document.getElementById('myChart'); 
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+    });
+</script>
+{% endblock  %}

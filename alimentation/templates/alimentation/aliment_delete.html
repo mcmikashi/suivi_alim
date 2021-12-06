@@ -1,0 +1,10 @@
+{% extends 'alimentation/base.html' %}
+{% block contenue %}
+<form class="text-center" method="post">
+    {% csrf_token %}
+    {{form}}
+    <p>Vous voulez vraiment suprimer cette aliment de votre liste.</p>
+    <button class="btn btn-danger" type="submit">supprimer</button>
+    <a href="{% url 'alimentation:index' %}" class="btn btn-primary">annuler</a>
+</form>
+{% endblock  %}

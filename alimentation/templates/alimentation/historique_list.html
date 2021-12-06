@@ -1,0 +1,15 @@
+{% extends 'alimentation/base.html' %}
+{% load static %}
+{% block contenue %}
+<div class="row">
+    <div class="col-4 mx-auto">
+        <h2 class="text-center">Historique</h2>
+        <ul class="list-group text-center">
+            {% for item in object_list  %}
+            <li class="list-group-item">{{item.date}}<a class="btn btn-primary" href="{% url 'alimentation:historique-alimenation' item.date|date:"Y" item.date|date:"m" item.date|date:"d"  %}">voir</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock contenue %}

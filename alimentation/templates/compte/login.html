@@ -1,0 +1,11 @@
+{% extends 'compte/base.html' %}
+{% block contenue %}
+<div class="row">
+    <div class="col-6 mx-auto">
+        <h2 class="text-center">Connexion</h2>
+        {% include "formulaire/normale_form.html" %}
+        <p class="text-center"><a class="btn btn-outline-danger" href="{% url 'alimentation:mdp_reset' %}">mot de passe oublier</a></p>
+        <p  class="text-center"><a class="btn btn-outline-danger" href="{% url 'alimentation:inscription' %}">inscription</a></p>
+    </div>
+</div>
+{% endblock  %}
